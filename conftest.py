@@ -11,7 +11,7 @@ from selenium.webdriver.support import expected_conditions as EC
 load_dotenv()
 user_agent = gen_user_agent()
 
-@pytest.fixture
+@pytest.fixture(scope="function")
 def setup():
     options = uc.ChromeOptions()
     options.add_argument(f'--user-agent: {user_agent}')
