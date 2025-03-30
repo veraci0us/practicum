@@ -28,7 +28,7 @@ def run_on_github():
 def setup():
 
     if is_github_actions():
-        run_on_github()
+        driver = run_on_github()
     else:
         options = uc.ChromeOptions()
         options.add_argument(f'--user-agent: {user_agent}')
