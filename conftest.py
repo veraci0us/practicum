@@ -14,7 +14,12 @@ user_agent = gen_user_agent()
 @pytest.fixture(scope="function")
 def setup():
     options = uc.ChromeOptions()
+
     options.add_argument(f'--user-agent: {user_agent}')
+    options.add_argument('--headless')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--no-sandbox')
+
     driver = uc.Chrome(options=options)
     driver.delete_all_cookies()
 
