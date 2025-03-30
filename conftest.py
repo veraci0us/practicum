@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 import undetected_chromedriver as uc
 from helpers.faker_helper import gen_user_agent
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
@@ -11,17 +12,29 @@ from selenium.webdriver.support import expected_conditions as EC
 load_dotenv()
 user_agent = gen_user_agent()
 
-@pytest.fixture(scope="function")
-def setup():
-    options = uc.ChromeOptions()
+def is_github_actions():
+    return 'GITHUB_ACTIONS' in os.environ
 
-    options.add_argument(f'--user-agent: {user_agent}')
+def run_on_github():
+    options = webdriver.ChromeOptions()
     options.add_argument('--headless')
     options.add_argument('--disable-gpu')
     options.add_argument('--no-sandbox')
 
-    driver = uc.Chrome(options=options)
-    driver.delete_all_cookies()
+    driver = webdriver.Chrome(options=options)
+    return driver
+
+@pytest.fixture(scope="function")
+def setup():
+
+    if is_github_actions():
+        run_on_github()
+    else:
+        options = uc.ChromeOptions()
+        options.add_argument(f'--user-agent: {user_agent}')
+
+        driver = uc.Chrome(options=options)
+        driver.delete_all_cookies()
 
     driver.get(os.getenv('PROXY_URL'))
 
