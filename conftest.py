@@ -22,6 +22,8 @@ def run_on_github():
     options.add_argument('--no-sandbox')
 
     driver = webdriver.Chrome(options=options)
+    driver.get(os.getenv('URL'))
+    
     return driver
 
 @pytest.fixture(scope="function")
@@ -36,13 +38,13 @@ def setup():
         driver = uc.Chrome(options=options)
         driver.delete_all_cookies()
 
-    driver.get(os.getenv('PROXY_URL'))
+    # driver.get(os.getenv('PROXY_URL'))
 
-    input = WebDriverWait(driver=driver, timeout=10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[name="url"]')))
-    input.send_keys(os.getenv('URL'))
-    input.send_keys(Keys.ENTER)
+    # input = WebDriverWait(driver=driver, timeout=10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[name="url"]')))
+    # input.send_keys(os.getenv('URL'))
+    # input.send_keys(Keys.ENTER)
  
-    driver.maximize_window()
+    # driver.maximize_window()
 
     yield driver
     driver.quit()
