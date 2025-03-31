@@ -14,12 +14,14 @@ class TestDeleteCust():
             manager_page.click_customers()
             assert manager_page.is_endpoint('list')
 
-        with allure.step('Search for a name based on math condition'):
-            target_name = customers_list_page.calc_name_for_deletion()
+        target_name = customers_list_page.calc_name_for_deletion()
+        with allure.step(f'Search for a {target_name} based on math condition'):
             customers_list_page.search(target_name)
             assert customers_list_page.is_found(target_name)
 
-        with allure.step('Hit delete button'):
+        with allure.step(f'Hit delete button for {target_name}'):
             customers_list_page.delete_cust()
+        
+        with allure.step(f'Verify deletion of {target_name}'):
             assert customers_list_page.is_cust_deleted(target_name)
         

@@ -6,19 +6,22 @@ from helpers.turn_digit_to_letter import turn_digit_to_letter
 class AddCustPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
-        self.post_code = get_random_10_digits()
-        self.name = turn_digit_to_letter(self.post_code)
-        self.last_name = get_random_last_name()
 
-    def fill_post_code(self): 
-        print(type(self.post_code))
-        self.add_text(AddCustLocators.POST_CODE_FIELD, self.post_code)
+    def gen_data(self):
+        post_code = get_random_10_digits()
+        name = turn_digit_to_letter(post_code)
+        last_name = get_random_last_name()
 
-    def fill_name(self):
-        self.add_text(AddCustLocators.NAME_FIELD, self.name)
+        return {"post_code": post_code, "name": name, "last_name": last_name}
+
+    def fill_post_code(self, post_code): 
+        self.add_text(AddCustLocators.POST_CODE_FIELD, post_code)
+
+    def fill_name(self, name):
+        self.add_text(AddCustLocators.NAME_FIELD, name)
     
-    def fill_last_name(self):
-        self.add_text(AddCustLocators.LAST_NAME_FIELD, self.last_name)
+    def fill_last_name(self, last_name):
+        self.add_text(AddCustLocators.LAST_NAME_FIELD, last_name)
 
     def submit_customer(self):
         self.click(AddCustLocators.SUBMIT_CUSTOMER_BTN)
@@ -27,5 +30,3 @@ class AddCustPage(BasePage):
         alert = self.get_alert_text()
         return alert_text in alert
     
-    def get_customer(self):
-        return [self.name, self.last_name, self.post_code]

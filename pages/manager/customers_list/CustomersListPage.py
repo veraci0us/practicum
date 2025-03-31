@@ -13,7 +13,11 @@ class CustomersListPage(BasePage):
 
         actual_data = [cell.text.strip() for cell in cells[:3]]
         # post code to num
-        actual_data[2] = int(actual_data[2])
+        actual_data = {
+            'name': actual_data[0],
+            'last_name': actual_data[1],
+            'post_code': int(actual_data[2])
+        }
 
         return actual_data == customer
     

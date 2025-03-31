@@ -14,7 +14,9 @@ class TestSortCustomersByName:
             manager_page.click_customers()
             assert manager_page.matches_endpoint('list')
 
-        with allure.step('Sort by name in ascend order'):
+        with allure.step('Click Name link in table head to sort in ascen order'):
             customers_list_page.sort_by_name()
+
+        with allure.step('Check if list is sorted'):
             assert customers_list_page.is_sorted_ascen()
     
