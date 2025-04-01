@@ -1,13 +1,14 @@
 import pytest
 import os
 from dotenv import load_dotenv
-import undetected_chromedriver as uc
 from helpers.faker_helper import gen_user_agent
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 
 load_dotenv()
 user_agent = gen_user_agent()
@@ -32,19 +33,21 @@ def setup():
     if is_github_actions():
         driver = run_on_github()
     else:
-        options = uc.ChromeOptions()
+        options = webdriver.ChromeOptions()
         options.add_argument(f'--user-agent: {user_agent}')
 
-        driver = uc.Chrome(options=options)
+        service = Service(ChromeDriverManager.install())
+        driver = webdriver.Chrome(options=options, service=service)
+        
         driver.delete_all_cookies()
 
-    # driver.get(os.getenv('PROXY_URL'))
+    driver.get(os.getenv('PROXY_URL'))
 
-    # input = WebDriverWait(driver=driver, timeout=10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[name="url"]')))
-    # input.send_keys(os.getenv('URL'))
-    # input.send_keys(Keys.ENTER)
+    input = WebDriverWait(driver=driver, timeout=10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'input[name="url"]')))
+    input.send_keys(os.getenv('URL'))
+    input.send_keys(Keys.ENTER)
  
-    # driver.maximize_window()
+    driver.maximize_window()
 
     yield driver
     driver.quit()
