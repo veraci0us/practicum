@@ -1,17 +1,13 @@
-from pages.manager.customers_list.CustomersListPage import CustomersListPage
-from pages.manager.ManagerPage import ManagerPage
 import allure
 
 class TestDeleteCust():
     @allure.description('Test deleting a customer based on name length')
     @allure.feature('Delete customer')
     @allure.severity(allure.severity_level.CRITICAL)
-    def test_delete_cust(self, setup):
-        customers_list_page = CustomersListPage(setup)
-        manager_page = ManagerPage(setup)
+    def test_delete_cust(self, manager_page, customers_list_page):
 
         with allure.step('Navigate to customers list page'):
-            manager_page.click_customers()
+            manager_page.click_customers_btn()
             assert manager_page.is_endpoint('list')
 
         target_name = customers_list_page.calc_name_for_deletion()
