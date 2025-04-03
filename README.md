@@ -8,8 +8,8 @@ Follow these steps to set up your environment and install the necessary dependen
 
 1. **Clone the repository:**
 ```sh
-git clone https://github.com/veraci0us/input-fields.git
-cd input-fields
+git clone https://github.com/veraci0us/practicum.git
+cd practicum
 ```
 2. **Set up a virtual environment:**
 ```sh
