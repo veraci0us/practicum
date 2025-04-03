@@ -1,0 +1,36 @@
+5
+<tr ng-repeat="cust in Customers | orderBy:sortType:sortReverse | filter:searchCustomer" __cpp="1" class="ng-scope">
+        <td __cpp="1" class="ng-binding">Albus</td>
+        <td __cpp="1" class="ng-binding">Dumbledore</td>
+        <td __cpp="1" class="ng-binding">E55656</td>
+        <td __cpp="1"><!-- ngRepeat: account in cust.accountNo --><span ng-repeat="account in cust.accountNo" __cpp="1" class="ng-binding ng-scope">1010 </span><!-- end ngRepeat: account in cust.accountNo --><span ng-repeat="account in cust.accountNo" __cpp="1" class="ng-binding ng-scope">1011 </span><!-- end ngRepeat: account in cust.accountNo --><span ng-repeat="account in cust.accountNo" __cpp="1" class="ng-binding ng-scope">1012 </span><!-- end ngRepeat: account in cust.accountNo --></td>
+        <td __cpp="1"><button ng-click="deleteCust(cust)" __cpp="1">Delete</button></td>
+      </tr>
+<tr ng-repeat="cust in Customers | orderBy:sortType:sortReverse | filter:searchCustomer" __cpp="1" class="ng-scope">
+        <td __cpp="1" class="ng-binding">Harry</td>
+        <td __cpp="1" class="ng-binding">Potter</td>
+        <td __cpp="1" class="ng-binding">E725JB</td>
+        <td __cpp="1"><!-- ngRepeat: account in cust.accountNo --><span ng-repeat="account in cust.accountNo" __cpp="1" class="ng-binding ng-scope">1004 </span><!-- end ngRepeat: account in cust.accountNo --><span ng-repeat="account in cust.accountNo" __cpp="1" class="ng-binding ng-scope">1005 </span><!-- end ngRepeat: account in cust.accountNo --><span ng-repeat="account in cust.accountNo" __cpp="1" class="ng-binding ng-scope">1006 </span><!-- end ngRepeat: account in cust.accountNo --></td>
+        <td __cpp="1"><button ng-click="deleteCust(cust)" __cpp="1">Delete</button></td>
+      </tr>
+<tr ng-repeat="cust in Customers | orderBy:sortType:sortReverse | filter:searchCustomer" __cpp="1" class="ng-scope">
+        <td __cpp="1" class="ng-binding">Hermoine</td>
+        <td __cpp="1" class="ng-binding">Granger</td>
+        <td __cpp="1" class="ng-binding">E859AB</td>
+        <td __cpp="1"><!-- ngRepeat: account in cust.accountNo --><span ng-repeat="account in cust.accountNo" __cpp="1" class="ng-binding ng-scope">1001 </span><!-- end ngRepeat: account in cust.accountNo --><span ng-repeat="account in cust.accountNo" __cpp="1" class="ng-binding ng-scope">1002 </span><!-- end ngRepeat: account in cust.accountNo --><span ng-repeat="account in cust.accountNo" __cpp="1" class="ng-binding ng-scope">1003 </span><!-- end ngRepeat: account in cust.accountNo --></td>
+        <td __cpp="1"><button ng-click="deleteCust(cust)" __cpp="1">Delete</button></td>
+      </tr>
+<tr ng-repeat="cust in Customers | orderBy:sortType:sortReverse | filter:searchCustomer" __cpp="1" class="ng-scope">
+        <td __cpp="1" class="ng-binding">Neville</td>
+        <td __cpp="1" class="ng-binding">Longbottom</td>
+        <td __cpp="1" class="ng-binding">E89898</td>
+        <td __cpp="1"><!-- ngRepeat: account in cust.accountNo --><span ng-repeat="account in cust.accountNo" __cpp="1" class="ng-binding ng-scope">1013 </span><!-- end ngRepeat: account in cust.accountNo --><span ng-repeat="account in cust.accountNo" __cpp="1" class="ng-binding ng-scope">1014 </span><!-- end ngRepeat: account in cust.accountNo --><span ng-repeat="account in cust.accountNo" __cpp="1" class="ng-binding ng-scope">1015 </span><!-- end ngRepeat: account in cust.accountNo --></td>
+        <td __cpp="1"><button ng-click="deleteCust(cust)" __cpp="1">Delete</button></td>
+      </tr>
+<tr ng-repeat="cust in Customers | orderBy:sortType:sortReverse | filter:searchCustomer" __cpp="1" class="ng-scope">
+        <td __cpp="1" class="ng-binding">Ron</td>
+        <td __cpp="1" class="ng-binding">Weasly</td>
+        <td __cpp="1" class="ng-binding">E55555</td>
+        <td __cpp="1"><!-- ngRepeat: account in cust.accountNo --><span ng-repeat="account in cust.accountNo" __cpp="1" class="ng-binding ng-scope">1007 </span><!-- end ngRepeat: account in cust.accountNo --><span ng-repeat="account in cust.accountNo" __cpp="1" class="ng-binding ng-scope">1008 </span><!-- end ngRepeat: account in cust.accountNo --><span ng-repeat="account in cust.accountNo" __cpp="1" class="ng-binding ng-scope">1009 </span><!-- end ngRepeat: account in cust.accountNo --></td>
+        <td __cpp="1"><button ng-click="deleteCust(cust)" __cpp="1">Delete</button></td>
+      </tr>
