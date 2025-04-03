@@ -1,5 +1,6 @@
 import allure
 
+
 class TestDeleteCust():
     @allure.description('Test deleting a customer based on name length')
     @allure.feature('Delete customer')
@@ -17,7 +18,6 @@ class TestDeleteCust():
 
         with allure.step(f'Hit delete button for {target_name}'):
             customers_list_page.delete_cust()
-        
+
         with allure.step(f'Verify deletion of {target_name}'):
             assert customers_list_page.is_cust_deleted(target_name)
-        
