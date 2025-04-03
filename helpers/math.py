@@ -1,5 +1,5 @@
 def count_letters(words):
-    return [len[word] for word in words]
+    return [len(word) for word in words]
 
 def calc_average(letters_in_words):
     return round(sum(letters_in_words) / len(letters_in_words))
