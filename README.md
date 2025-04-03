@@ -1,22 +1,33 @@
-## Manager Page Tests
+## Automated Tests
 
-## Test Case 1: Add Customer
+### Quick Description
+This repository contains automated tests for verifying the functionality of [XYZ Bank](https://www.globalsqa.com/angularJs-protractor/BankingProject/#/) site's manager pager. The tests are written in Python using pytest and utilize Allure for test reporting.
 
-1. Navigate to addCust page
-2. Fill in post code, name, last name
-3. Submit new customer
-4. Check alert with message "Customer added successfully"
-5. Navigate to customers list
-6. Check if new customer is added
+### Installation
+Follow these steps to set up your environment and install the necessary dependencies locally.
 
-## Test Case 2: Sort customers by name in asc order
+1. **Clone the repository:**
+```sh
+git clone https://github.com/veraci0us/input-fields.git
+cd input-fields
+```
+2. **Set up a virtual environment:**
+```sh
+python3 -m venv venv
+source venv/bin/activate
+```
+3. **Install dependencies:**
+```sh
+pip install -r requirements.txt
+```
 
-1. Navigate to customers list page
-2. Click Name link in table head
-3. Check if list is sorted
+### Run tests in terminal
+```sh
+pytest -s
+```
 
-## Test Case 3: Delete a customer based on name length
-1. Navigate to customers list page
-2. Search for a name based on math condition
-3. Hit delete button
-4. Verify deletion
+### View results with Alure
+The report is already generated, so you can run the command to see the webpage with results:
+```sh
+allure serve allure-results
+```
