@@ -28,11 +28,11 @@ jobs:
         run: |
           git clone https://github.com/bondarenkokate73/simbirsoft_sdet_project.git
           cd simbirsoft_sdet_project
-          sudo make run  # This should now work since Docker Compose is available
+          sudo make run
 
       - name: Wait for backend to be ready
         run: |
-          curl --retry 10 --retry-delay 5 --max-time 60 --silent http://localhost:8000/health || exit 1
+          curl --retry 20 --retry-delay 10 --max-time 120 --silent http://localhost:8000/health || exit 1
 
       - name: Set up Python
         uses: actions/setup-python@v4
