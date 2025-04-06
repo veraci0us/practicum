@@ -1,4 +1,4 @@
-name: Run Manager Page Tests
+name: Run Auto Tests
 
 on:  
   push:
@@ -14,6 +14,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2 
+
+      - name: Backend
+        run: |
+          git clone https://github.com/bondarenkokate73/simbirsoft_sdet_project.git
+          cd simbirsoft_sdet_project
+          sudo make run
+
+      - name: Wait for backend to be ready
+        run: |
+         curl --retry 10 --retry-delay 5 --max-time 60 --silent http://localhost:8000/health || exit 1
+          
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -25,4 +38,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run tests in parallel with pytest
-        run: pytest -n auto --alluredir=allure-results
+        run: pytest -n auto
+
+      - name: Shut down Docker containers
+        run: |
+          docker-compose down 
