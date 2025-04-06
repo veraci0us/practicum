@@ -5,6 +5,7 @@ from helpers.turn_digit_to_letter import turn_digit_to_letter
 
 
 class TestAddCustomer:
+    @allure.suite("UI Tests")
     @allure.description('Check if new customer is added to the list')
     @allure.feature('Add Customer')
     @allure.severity(allure.severity_level.CRITICAL)

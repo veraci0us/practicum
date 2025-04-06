@@ -2,6 +2,7 @@ import allure
 
 
 class TestSortCustomersByName:
+    @allure.suite("UI Tests")
     @allure.description('Test sorting customers in ascending order')
     @allure.feature('Sort customers in ascend order')
     @allure.severity(allure.severity_level.CRITICAL)

@@ -2,6 +2,7 @@ import allure
 
 
 class TestDeleteCust():
+    @allure.suite("UI Tests")
     @allure.description('Test deleting a customer based on name length')
     @allure.feature('Delete customer')
     @allure.severity(allure.severity_level.CRITICAL)
